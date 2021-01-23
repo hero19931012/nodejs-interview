@@ -1,0 +1,20 @@
+{
+  "name": "nodejs-interview",
+  "version": "1.0.0",
+  "description": "You could fork this repository for coding.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Junkier/nodejs-interview.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Junkier/nodejs-interview/issues"
+  },
+  "homepage": "https://github.com/Junkier/nodejs-interview#readme"
+}
