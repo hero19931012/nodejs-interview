@@ -29,7 +29,6 @@ app.post("/auth", userController.handleLogin)
 app.get("/index", auth, userController.index)
 app.get("/welcome", auth, userController.index)
 app.get("/logout", userController.handleLogout)
-app.get("/members", auth, userController.getAll)
 
 app.use("/to-do-list", auth, routerToDoList)
 routerToDoList.get('/page', todoController.listPage)

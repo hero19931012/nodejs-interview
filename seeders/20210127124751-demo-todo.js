@@ -1,6 +1,13 @@
 'use strict';
+const date = new Date().toLocaleDateString('zh-TW', {
+  timeZone: 'Asia/Taipei',
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+})
+const time = new Date().toLocaleTimeString('zh-TW', { hour12: false, timeZone: 'Asia/Taipei' })
+const dateTime = `${date} ${time.split(":").slice(0, 2).join(":")}`
 
-const date = new Date();
 const members = [
   { account: "Oliver" },
   { account: "Harry" },
@@ -24,7 +31,7 @@ module.exports = {
         level: 3,
         author: members[Math.floor(Math.random() * members.length)].account,
         content: "AA",
-        reserved_time: date
+        reserved_time: dateTime
       },
       {
         to_do_id: "10002",
@@ -33,7 +40,7 @@ module.exports = {
         level: 8,
         author: members[Math.floor(Math.random() * members.length)].account,
         content: "BB",
-        reserved_time: date
+        reserved_time: dateTime
       },
       {
         to_do_id: "10003",
@@ -42,7 +49,7 @@ module.exports = {
         level: 7,
         author: members[Math.floor(Math.random() * members.length)].account,
         content: "CC",
-        reserved_time: date
+        reserved_time: dateTime
       },
       {
         to_do_id: "10004",
@@ -51,7 +58,7 @@ module.exports = {
         level: 3,
         author: members[Math.floor(Math.random() * members.length)].account,
         content: "DD",
-        reserved_time: date
+        reserved_time: dateTime
       },
       {
         to_do_id: "10005",
@@ -60,7 +67,7 @@ module.exports = {
         level: 5,
         author: members[Math.floor(Math.random() * members.length)].account,
         content: "QQ",
-        reserved_time: date
+        reserved_time: dateTime
       }
     ]);
   },

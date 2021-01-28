@@ -69,10 +69,6 @@ const userController = {
   handleLogout: (req, res) => {
     return res.clearCookie('token').status(204).redirect("/")
   },
-
-  getAll: (req, res) => {
-
-  }
 }
 
 module.exports = userController
