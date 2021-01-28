@@ -1,28 +1,29 @@
-var changeErrMsgState = function(msg){
+var changeErrMsgState = function (msg) {
     $("#err-message").text(msg);
 };
 
-$(function(){
+$(function () {
 
-    $(".login input").keyup(function(){
+    $(".login input").keyup(function () {
         changeErrMsgState("");
     });
 
-    $("#login-btn").click(function(){
+    $("#login-btn").click(function () {
         var account = $("#account").val();
-        var passwd  = $("#passwd").val();
+        var passwd = $("#passwd").val();
 
-
-        axios.post("/auth",{ account , passwd })
-             .then(function(res){
+        axios.post("/auth", { account, passwd })
+            .then(function (res) {
                 var message = res.data.message;
                 changeErrMsgState(message);
 
+                localStorage.setItem("token", res.data.token)
                 location.href = res.data.redirect;
-             })
-             .catch(function(err){
-                 var message = err.response.data.message;
-                 changeErrMsgState(message);
-             });
+            })
+            .catch(function (err) {
+                console.log(err);
+                var message = err.response.data.message;
+                changeErrMsgState(message);
+            });
     });
 });
