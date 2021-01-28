@@ -8,20 +8,16 @@ function auth(req, res, next) {
 
   if (token === undefined) {
     console.log("token unavailable");
-    return res.status(401).json({
-      message: "unauthenticated"
-    })
+    return res.status(401).redirect('/')
   }
 
   jwt.verify(token, SECRET, (err, decodedToken) => {
     if (err) {
-      console.log(err.tostring());
+      console.log(`jwt verify error: ${err.toString()}`);
       return res
         .clearCookie('token')
         .status(401)
-        .json({
-          message: "invalid token"
-        })
+        .redirect('/')
     }
 
     Member.findOne({ where: { account: decodedToken.account } })
@@ -31,9 +27,7 @@ function auth(req, res, next) {
           return res
             .clearCookie('token')
             .status(401)
-            .json({
-              message: "member not exist"
-            })
+            .redirect('/')
         }
         req.user = decodedToken.account
         next()
