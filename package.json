@@ -7,10 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "migrate": "npx sequelize-cli db:migrate",
     "seed": "npx sequelize-cli db:seed:all --debug",
-    "start": "npm run migrate && npm run seed && node server.js"
-  },
-  "engines": {
-    "node": "12.x"
+    "start": "npm run migrate && npm run seed && pm2 start server.js --name app"
   },
   "repository": {
     "type": "git",
